@@ -8,13 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIPageViewControllerDataSource {
+    private unowned var pageVC: UIPageViewController!
+    
+    private func makeItemVC() -> UIViewController {
+        return storyboard!.instantiateViewController(withIdentifier: "ItemViewController")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        pageVC.dataSource = self
+        pageVC.setViewControllers([makeItemVC()], direction: .forward, animated: false, completion: nil)
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.destination is UIPageViewController {
+            pageVC = segue.destination as? UIPageViewController
+        }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return makeItemVC()
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return makeItemVC()
+    }
 }
 
