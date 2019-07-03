@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UIPageViewControllerDataSource {
-    private unowned var pageVC: UIPageViewController!
+    private weak var pageVC: UIPageViewController!
     
     private func makeItemVC() -> UIViewController {
         return storyboard!.instantiateViewController(withIdentifier: "ItemViewController")
