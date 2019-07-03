@@ -29,11 +29,9 @@ class ItemVC: UIViewController {
     
     @IBOutlet private weak var textView: UIView!
     @IBOutlet private weak var textViewHeightConstraint: NSLayoutConstraint!
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.renderer.draw(size: CGSize(width: UIScreen.main.bounds.width, height: .infinity)) { (size, cgImage) in
+    
+    private func draw() {
+        self.renderer.draw(size: CGSize(width: self.textView.bounds.width, height: .infinity)) { (size, cgImage) in
             DispatchQueue.main.async {
                 self.textViewHeightConstraint.constant = size.height
                 
@@ -42,5 +40,10 @@ class ItemVC: UIViewController {
                 self.textView.layer.contents = cgImage
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        draw()
     }
 }
