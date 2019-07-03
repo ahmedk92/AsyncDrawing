@@ -29,30 +29,18 @@ class ItemVC: UIViewController {
     
     @IBOutlet private weak var textView: UIView!
     @IBOutlet private weak var textViewHeightConstraint: NSLayoutConstraint!
-    
-    private var viewWillAppearQueue = [() -> ()]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewWillAppearQueue.append {
-            self.renderer.draw(size: CGSize(width: self.textView.bounds.width, height: .infinity)) { (size, cgImage) in
-                DispatchQueue.main.async {
-                    self.textViewHeightConstraint.constant = size.height
-                    
-                    self.textView.layer.contentsScale = UIScreen.main.scale
-                    self.textView.layer.contentsGravity = .right
-                    self.textView.layer.contents = cgImage
-                }
+        self.renderer.draw(size: CGSize(width: UIScreen.main.bounds.width, height: .infinity)) { (size, cgImage) in
+            DispatchQueue.main.async {
+                self.textViewHeightConstraint.constant = size.height
+                
+                self.textView.layer.contentsScale = UIScreen.main.scale
+                self.textView.layer.contentsGravity = .right
+                self.textView.layer.contents = cgImage
             }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        while !viewWillAppearQueue.isEmpty {
-            viewWillAppearQueue.removeFirst()()
         }
     }
 }
