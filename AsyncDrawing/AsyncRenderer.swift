@@ -14,7 +14,7 @@ class AsyncRenderer {
     private let queue: DispatchQueue
     private let text: NSAttributedString
     
-    init(queue: DispatchQueue = DispatchQueue(label: "AsyncRenderer"), text: NSAttributedString) {
+    init(queue: DispatchQueue, text: NSAttributedString) {
         self.queue = queue
         self.text = text
     }
