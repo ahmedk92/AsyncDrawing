@@ -1,3 +1,5 @@
+# USE MASTER BRANCH FOR A SIMPLER DEMO
+
 # AsyncDrawing
 Async Drawing Demo with UIPageViewController
 
