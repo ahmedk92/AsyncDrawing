@@ -18,24 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-d6-vxg">
-                                <rect key="frame" x="143.5" y="254" width="33" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-d6-vxg">
+                                <rect key="frame" x="143.5" y="224" width="33" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6M-8D-CNS">
-                                        <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="60"/>
                                         <state key="normal" title="Slow"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="SlowVC" id="G6w-EO-Drc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmW-4c-0ms">
-                                        <rect key="frame" x="0.0" y="30" width="33" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="33" height="60"/>
                                         <state key="normal" title="Fast"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="FastVC" id="6eI-P2-mXM"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="MU6-Bu-hcK"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
