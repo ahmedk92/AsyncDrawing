@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ItemVC: UIViewController {
+class FastVC: UIViewController {
     private static let queue = DispatchQueue(label: "AsyncRenderer")
-    private let renderer = AsyncRenderer(queue: ItemVC.queue, text: NSAttributedString(string: """
+    private let renderer = AsyncRenderer(queue: FastVC.queue, text: NSAttributedString(string: """
 دار سقطت غرّة، مع, ألمّ التحالف وقد تم. لمحاكم بمحاولة أي بال, ان انه تحرير الأرضية, للصين قائمة الثقيلة ما حين. عل كلّ مقاطعة العسكري, تم بحق ثانية بزمام وفرنسا. خلاف لكون الجنود بعض ان, أوزار الأولى للمجهود شيء بل. انه قد السيء الجنوب, شواطيء الثالث من بها.
 
 و حدى أفاق فاتّبع. فعل أوزار نتيجة ليتسنّى ما, بين بل الصينية الجنرال. في مدن الباهضة المعاهدات, أما يتبقّ اوروبا في, بحث عرفها اتّجة البرية عن. فسقط فرنسا الأسيوي إذ بلا, جعل ومضى أملاً علاقة إذ.
