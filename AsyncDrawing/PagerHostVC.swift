@@ -16,11 +16,21 @@ class PagerHostVC: UIViewController, UIPageViewControllerDataSource {
         return storyboard!.instantiateViewController(withIdentifier: vcId)
     }
     
+    private func showAlert() {
+        let alert = UIAlertController(title: nil, message: "Swipe right/left fast to compare scroll performance", preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = vcId
         pageVC.dataSource = self
         pageVC.setViewControllers([makeVC()], direction: .forward, animated: false, completion: nil)
+        
+        showAlert()
     }
     
     override func viewDidAppear(_ animated: Bool) {
